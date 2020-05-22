@@ -38,6 +38,7 @@ class _TaskListPageState extends State<TaskListPage> {
   }
 
   Widget pageBody(BuildContext context) {
+    print(MediaQuery.of(context).size.width);
     return Row(
       children: <Widget>[
         Expanded(
@@ -78,6 +79,7 @@ class _TaskListPageState extends State<TaskListPage> {
                         title: DataMap.dataMap[index]["title"],
                         time: DataMap.dataMap[index]["time"],
                         date: DataMap.dataMap[index]["date"],
+                        status: DataMap.dataMap[index]["status"],
                       );
                     },
                     itemCount: DataMap.dataMap.length,

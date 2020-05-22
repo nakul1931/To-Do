@@ -19,16 +19,17 @@ class TextStyles {
             color: AppColors.lightGrey,
             fontWeight: FontWeight.bold),
       );
-  static TextStyle get basedateStyle => GoogleFonts.muli(
-        textStyle: TextStyle(
-            fontSize: 15.0,
-            color: AppColors.darkGrey,
-            fontWeight: FontWeight.bold),
-      );
-  static TextStyle get titleStyle => GoogleFonts.muli(
-        textStyle: TextStyle(
-            fontSize: 20.0,
-            color: AppColors.black,
-            fontWeight: FontWeight.w600),
-      );
+  static TextStyle basedateStyle(Color color) {
+    return GoogleFonts.muli(
+      textStyle:
+          TextStyle(fontSize: 15.0, color: color, fontWeight: FontWeight.bold),
+    );
+  }
+
+  static TextStyle titleStyle(Color color) {
+    return GoogleFonts.muli(
+      textStyle:
+          TextStyle(fontSize: 20.0, color: color, fontWeight: FontWeight.w600),
+    );
+  }
 }
