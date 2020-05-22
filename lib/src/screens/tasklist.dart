@@ -1,0 +1,120 @@
+import 'dart:io';
+
+import 'package:TodoList/src/data/data.dart';
+import 'package:TodoList/src/data/dataMap.dart';
+import 'package:TodoList/src/models/task.dart';
+import 'package:TodoList/src/styles/color.dart';
+import 'package:TodoList/src/styles/text.dart';
+import 'package:TodoList/src/widgets/button.dart';
+import 'package:TodoList/src/widgets/taskContainer.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+class TaskListPage extends StatefulWidget {
+  @override
+  _TaskListPageState createState() => _TaskListPageState();
+}
+
+class _TaskListPageState extends State<TaskListPage> {
+  List myPairs;
+  @override
+  void initState() {
+    super.initState();
+    myPairs = getPairs();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (Platform.isIOS) {
+      return CupertinoPageScaffold(
+        child: SafeArea(child: pageBody(context)),
+      );
+    } else {
+      return Scaffold(
+        body: SafeArea(child: pageBody(context)),
+      );
+    }
+  }
+
+  Widget pageBody(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Expanded(
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  "TASKS LIST",
+                  style: TextStyles.baseTextStyle,
+                ),
+                SizedBox(
+                  height: 10.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      "Work",
+                      style: TextStyles.headingStyle,
+                    ),
+                    IconButton(
+                      icon: FaIcon(FontAwesomeIcons.pencilAlt),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    itemBuilder: (BuildContext context, int index) {
+                      print(DataMap.dataMap[index]);
+                      return TaskContainer(
+                        title: DataMap.dataMap[index]["title"],
+                        time: DataMap.dataMap[index]["time"],
+                        date: DataMap.dataMap[index]["date"],
+                      );
+                    },
+                    itemCount: DataMap.dataMap.length,
+                  ),
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                AppButton(),
+              ],
+            ),
+          ),
+        ),
+        Container(
+            width: MediaQuery.of(context).size.width * 0.2,
+            padding: EdgeInsets.symmetric(vertical: 35.0, horizontal: 10.0),
+            height: MediaQuery.of(context).size.height,
+            color: AppColors.sideBarblack,
+            child: Column(
+              children: <Widget>[
+                FaIcon(
+                  FontAwesomeIcons.bars,
+                  color: AppColors.white,
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Expanded(
+                  child: Text("CJ"),
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                FaIcon(FontAwesomeIcons.calendar, color: AppColors.white)
+              ],
+            )),
+      ],
+    );
+  }
+}
