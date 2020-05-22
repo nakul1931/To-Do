@@ -28,11 +28,11 @@ class _TaskListPageState extends State<TaskListPage> {
   Widget build(BuildContext context) {
     if (Platform.isIOS) {
       return CupertinoPageScaffold(
-        child: SafeArea(child: pageBody(context)),
+        child:  pageBody(context),
       );
     } else {
       return Scaffold(
-        body: SafeArea(child: pageBody(context)),
+        body:pageBody(context),
       );
     }
   }
@@ -88,7 +88,10 @@ class _TaskListPageState extends State<TaskListPage> {
                 SizedBox(
                   height: 20.0,
                 ),
-                AppButton(),
+                AppButton(
+                  color: AppColors.lightpurpule,
+                  title: "+ ADD NEW TASK",
+                ),
               ],
             ),
           ),

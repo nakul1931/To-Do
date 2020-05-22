@@ -16,12 +16,12 @@ class PlatformCheck extends StatelessWidget {
   Widget build(BuildContext context) {
     if (Platform.isIOS) {
       return CupertinoApp(
-        home: TaskListPage(),
+        home: SafeArea(child: TaskListPage()),
         onGenerateRoute: Routes.cupertinoPageRoute,
       );
     } else {
       return MaterialApp(
-        home: TaskListPage(),
+        home: SafeArea(child: TaskListPage()),
         onGenerateRoute: Routes.materialPageRoute,
       );
     }
