@@ -7,6 +7,7 @@ import 'package:TodoList/src/styles/color.dart';
 import 'package:TodoList/src/styles/text.dart';
 import 'package:TodoList/src/widgets/button.dart';
 import 'package:TodoList/src/widgets/taskContainer.dart';
+import 'package:TodoList/src/widgets/todoButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -38,7 +39,7 @@ class _TaskListPageState extends State<TaskListPage> {
   }
 
   Widget pageBody(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
+    // print(MediaQuery.of(context).size.width);
     return Row(
       children: <Widget>[
         Expanded(
@@ -74,7 +75,7 @@ class _TaskListPageState extends State<TaskListPage> {
                 Expanded(
                   child: ListView.builder(
                     itemBuilder: (BuildContext context, int index) {
-                      print(DataMap.dataMap[index]);
+                      // print(DataMap.dataMap[index]);
                       return TaskContainer(
                         title: DataMap.dataMap[index]["title"],
                         time: DataMap.dataMap[index]["time"],
@@ -95,25 +96,33 @@ class _TaskListPageState extends State<TaskListPage> {
         ),
         Container(
             width: MediaQuery.of(context).size.width * 0.2,
-            padding: EdgeInsets.symmetric(vertical: 35.0, horizontal: 10.0),
+            padding: EdgeInsets.symmetric(vertical: 35.0, horizontal: 15.0),
             height: MediaQuery.of(context).size.height,
             color: AppColors.sideBarblack,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 FaIcon(
                   FontAwesomeIcons.bars,
                   color: AppColors.white,
                 ),
                 SizedBox(
-                  height: 20.0,
+                  height: 75.0,
                 ),
                 Expanded(
-                  child: Text("CJ"),
-                ),
+                    child: Column(children: <Widget>[
+                  TodoButton(
+                      color: AppColors.lightpurpule,
+                      height: (MediaQuery.of(context).size.width * 0.2) - 30.0),
+                ])),
                 SizedBox(
                   height: 20.0,
                 ),
-                FaIcon(FontAwesomeIcons.calendar, color: AppColors.white)
+                IconButton(
+                  icon: Icon(FontAwesomeIcons.calendar),
+                  color: AppColors.white,
+                  onPressed: () => {print("Calendar Pressed")},
+                )
               ],
             )),
       ],

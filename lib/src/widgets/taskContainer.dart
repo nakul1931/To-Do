@@ -12,7 +12,7 @@ class TaskContainer extends StatelessWidget {
   const TaskContainer({this.title, this.date, this.time, this.status});
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
+    // print(MediaQuery.of(context).size.width);
     Color color;
     Color textColor;
     Color textDateColor;

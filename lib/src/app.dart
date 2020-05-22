@@ -1,3 +1,4 @@
+import 'package:TodoList/src/routes.dart';
 import 'package:TodoList/src/screens/tasklist.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,11 +16,13 @@ class PlatformCheck extends StatelessWidget {
   Widget build(BuildContext context) {
     if (Platform.isIOS) {
       return CupertinoApp(
-        home: TaskListPage()
+        home: TaskListPage(),
+        onGenerateRoute: Routes.cupertinoPageRoute,
       );
     } else {
       return MaterialApp(
         home: TaskListPage(),
+        onGenerateRoute: Routes.materialPageRoute,
       );
     }
   }
