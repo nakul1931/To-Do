@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:TodoList/src/data/data.dart';
 import 'package:TodoList/src/data/dataMap.dart';
-import 'package:TodoList/src/models/task.dart';
 import 'package:TodoList/src/styles/color.dart';
 import 'package:TodoList/src/styles/text.dart';
 import 'package:TodoList/src/widgets/button.dart';
