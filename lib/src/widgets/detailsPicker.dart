@@ -8,12 +8,14 @@ class DetailsPicker extends StatelessWidget {
   final IconData icon;
   final Color iconColor;
   final Color iconAccent;
+  final Widget child;
 
   const DetailsPicker(
       {@required this.isBorder,
       @required this.icon,
       @required this.iconColor,
-      @required this.iconAccent});
+      @required this.iconAccent,
+      @required this.child});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,6 +27,7 @@ class DetailsPicker extends StatelessWidget {
           : null,
       padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Container(
             padding: EdgeInsets.all(15.0),
@@ -36,10 +39,7 @@ class DetailsPicker extends StatelessWidget {
           SizedBox(
             width: 30.0,
           ),
-          Text(
-            "Friday 28, November",
-            style: TextStyles.titleStyle(AppColors.black),
-          )
+          child
         ],
       ),
     );
