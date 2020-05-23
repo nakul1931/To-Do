@@ -23,7 +23,7 @@ class SchedulePage extends StatelessWidget {
   Widget pageBody(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: 15, top: 20),
-      color: Colors.black,
+      color: AppColors.darkGrey,
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -159,323 +159,354 @@ class SchedulePage extends StatelessWidget {
                               ),
                             ),
                             Container(
-                                width: MediaQuery.of(context).size.width / 4,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text('Mon',style: TextStyle(fontSize: 20,color: Colors.white),),
-                                    SizedBox(height:30),
-                                    Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Container(
-                                        height: 70,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Colors.blue),
-                                        child: Center(
-                                          child: Text(
-                                            'Yoga Class',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyles.baseTextStyle,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: 50),
-                                     Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Container(
-                                        height: 120,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Colors.purple),
-                                        child: Center(
-                                          child: Text(
-                                            'Changes New Design',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyles.baseTextStyle,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),),
-                            Container(
                               width: MediaQuery.of(context).size.width / 4,
                               child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text('Tue',style: TextStyle(fontSize: 20,color: Colors.white),),
-                                    SizedBox(height: 100,),
-                                    
-                                    Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Container(
-                                        height: 180,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Colors.orange),
-                                        child: Center(
-                                          child: Text(
-                                            'School Meeting',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyles.baseTextStyle,
-                                          ),
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'Mon',
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.white),
+                                  ),
+                                  SizedBox(height: 30),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Container(
+                                      height: 70,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.blue),
+                                      child: Center(
+                                        child: Text(
+                                          'Yoga Class',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyles.baseTextStyle,
                                         ),
                                       ),
                                     ),
-                                    SizedBox(height: 50),
-                                     Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Container(
-                                        height: 120,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Colors.green),
-                                        child: Center(
-                                          child: Text(
-                                            'Try New Icon',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyles.baseTextStyle,
-                                          ),
+                                  ),
+                                  SizedBox(height: 50),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Container(
+                                      height: 120,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.purple),
+                                      child: Center(
+                                        child: Text(
+                                          'Changes New Design',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyles.baseTextStyle,
                                         ),
                                       ),
                                     ),
-                                  ],
-                                ),
-                              
+                                  ),
+                                ],
+                              ),
                             ),
                             Container(
                               width: MediaQuery.of(context).size.width / 4,
                               child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text('Wed',style: TextStyle(fontSize: 20,color: Colors.white),),
-                                    SizedBox(height: 30,),
-                                    Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Container(
-                                        height: 70,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Colors.purple[300]),
-                                        child: Center(
-                                          child: Text(
-                                            'Pay The Bills',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyles.baseTextStyle,
-                                          ),
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'Tue',
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.white),
+                                  ),
+                                  SizedBox(
+                                    height: 100,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Container(
+                                      height: 180,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.orange),
+                                      child: Center(
+                                        child: Text(
+                                          'School Meeting',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyles.baseTextStyle,
                                         ),
                                       ),
                                     ),
-                                    SizedBox(height: 50),
-                                     Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Container(
-                                        height: 180,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Colors.pink),
-                                        child: Center(
-                                          child: Text(
-                                            'Making user flow for a mobile app',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyles.baseTextStyle,
-                                          ),
+                                  ),
+                                  SizedBox(height: 50),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Container(
+                                      height: 120,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.green),
+                                      child: Center(
+                                        child: Text(
+                                          'Try New Icon',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyles.baseTextStyle,
                                         ),
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
+                              ),
                             ),
                             Container(
                               width: MediaQuery.of(context).size.width / 4,
                               child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text('Thu',style: TextStyle(fontSize: 20,color: Colors.white),),
-                                    Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Container(
-                                        height: 70,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Colors.blue),
-                                        child: Center(
-                                          child: Text(
-                                            'Yoga Class',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyles.baseTextStyle,
-                                          ),
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'Wed',
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.white),
+                                  ),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Container(
+                                      height: 70,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.purple[300]),
+                                      child: Center(
+                                        child: Text(
+                                          'Pay The Bills',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyles.baseTextStyle,
                                         ),
                                       ),
                                     ),
-                                    SizedBox(height: 50),
-                                     Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Container(
-                                        height: 120,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Colors.blue),
-                                        child: Center(
-                                          child: Text(
-                                            'Changes New Design',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyles.baseTextStyle,
-                                          ),
+                                  ),
+                                  SizedBox(height: 50),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Container(
+                                      height: 180,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.pink),
+                                      child: Center(
+                                        child: Text(
+                                          'Making user flow for a mobile app',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyles.baseTextStyle,
                                         ),
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
+                              ),
                             ),
                             Container(
                               width: MediaQuery.of(context).size.width / 4,
                               child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text('Fri',style: TextStyle(fontSize: 20,color: Colors.white),),
-                                    Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Container(
-                                        height: 70,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Colors.blue),
-                                        child: Center(
-                                          child: Text(
-                                            'Yoga Class',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyles.baseTextStyle,
-                                          ),
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'Thu',
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.white),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Container(
+                                      height: 70,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.blue),
+                                      child: Center(
+                                        child: Text(
+                                          'Yoga Class',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyles.baseTextStyle,
                                         ),
                                       ),
                                     ),
-                                    SizedBox(height: 50),
-                                     Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Container(
-                                        height: 120,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Colors.blue),
-                                        child: Center(
-                                          child: Text(
-                                            'Changes New Design',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyles.baseTextStyle,
-                                          ),
+                                  ),
+                                  SizedBox(height: 50),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Container(
+                                      height: 120,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.blue),
+                                      child: Center(
+                                        child: Text(
+                                          'Changes New Design',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyles.baseTextStyle,
                                         ),
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
+                              ),
                             ),
                             Container(
                               width: MediaQuery.of(context).size.width / 4,
                               child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text('Sat',style: TextStyle(fontSize: 20,color: Colors.white),),
-                                    Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Container(
-                                        height: 70,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Colors.blue),
-                                        child: Center(
-                                          child: Text(
-                                            'Yoga Class',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyles.baseTextStyle,
-                                          ),
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'Fri',
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.white),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Container(
+                                      height: 70,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.blue),
+                                      child: Center(
+                                        child: Text(
+                                          'Yoga Class',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyles.baseTextStyle,
                                         ),
                                       ),
                                     ),
-                                    SizedBox(height: 50),
-                                     Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Container(
-                                        height: 120,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Colors.blue),
-                                        child: Center(
-                                          child: Text(
-                                            'Changes New Design',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyles.baseTextStyle,
-                                          ),
+                                  ),
+                                  SizedBox(height: 50),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Container(
+                                      height: 120,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.blue),
+                                      child: Center(
+                                        child: Text(
+                                          'Changes New Design',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyles.baseTextStyle,
                                         ),
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
+                              ),
                             ),
                             Container(
                               width: MediaQuery.of(context).size.width / 4,
                               child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: <Widget>[
-                                    Text('Sun',style: TextStyle(fontSize: 20,color: Colors.white),),
-                                    Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Container(
-                                        height: 70,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Colors.blue),
-                                        child: Center(
-                                          child: Text(
-                                            'Yoga Class',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyles.baseTextStyle,
-                                          ),
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'Sat',
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.white),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Container(
+                                      height: 70,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.blue),
+                                      child: Center(
+                                        child: Text(
+                                          'Yoga Class',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyles.baseTextStyle,
                                         ),
                                       ),
                                     ),
-                                    SizedBox(height: 50),
-                                     Padding(
-                                      padding: EdgeInsets.all(10),
-                                      child: Container(
-                                        height: 120,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            color: Colors.blue),
-                                        child: Center(
-                                          child: Text(
-                                            'Changes New Design',
-                                            textAlign: TextAlign.center,
-                                            style: TextStyles.baseTextStyle,
-                                          ),
+                                  ),
+                                  SizedBox(height: 50),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Container(
+                                      height: 120,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.blue),
+                                      child: Center(
+                                        child: Text(
+                                          'Changes New Design',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyles.baseTextStyle,
                                         ),
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width / 4,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    'Sun',
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.white),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Container(
+                                      height: 70,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.blue),
+                                      child: Center(
+                                        child: Text(
+                                          'Yoga Class',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyles.baseTextStyle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 50),
+                                  Padding(
+                                    padding: EdgeInsets.all(10),
+                                    child: Container(
+                                      height: 120,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                          color: Colors.blue),
+                                      child: Center(
+                                        child: Text(
+                                          'Changes New Design',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyles.baseTextStyle,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),

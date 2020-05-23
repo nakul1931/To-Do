@@ -88,6 +88,7 @@ class TaskListPage extends StatelessWidget {
                   title: "+ ADD NEW TASK",
                   onTap: () {
                     Navigator.pushNamed(context, "/createTask");
+                    
                   },
                 ),
               ],

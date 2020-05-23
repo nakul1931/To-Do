@@ -125,7 +125,7 @@ class CreateTaskPage extends StatelessWidget {
             AppButton(
               title: "CREATE TASK",
               color: AppColors.black,
-              onTap: () => {},
+              onTap: () => Navigator.pushNamed(context, "/schedule"),
             ),
           ],
         ),
