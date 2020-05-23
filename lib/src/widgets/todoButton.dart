@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class TodoButton extends StatelessWidget {
   final double height;
   final Color color;
+  final String title;
 
-  const TodoButton({Key key, this.height, this.color}) : super(key: key);
+  const TodoButton({this.height, this.color, this.title});
   @override
   Widget build(BuildContext context) {
     return ButtonTheme(

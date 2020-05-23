@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:TodoList/src/data/data.dart';
 import 'package:TodoList/src/data/dataMap.dart';
 import 'package:TodoList/src/styles/color.dart';
 import 'package:TodoList/src/styles/text.dart';
@@ -11,28 +10,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class TaskListPage extends StatefulWidget {
-  @override
-  _TaskListPageState createState() => _TaskListPageState();
-}
-
-class _TaskListPageState extends State<TaskListPage> {
-  List myPairs;
-  @override
-  void initState() {
-    super.initState();
-    myPairs = getPairs();
-  }
-
+class TaskListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (Platform.isIOS) {
       return CupertinoPageScaffold(
-        child:  pageBody(context),
+        child: SafeArea(child: pageBody(context)),
       );
     } else {
       return Scaffold(
-        body:pageBody(context),
+        body: SafeArea(child: pageBody(context)),
       );
     }
   }
@@ -48,6 +35,13 @@ class _TaskListPageState extends State<TaskListPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                // CalendarDatePicker(
+
+                //   initialDate: DateTime(22),
+                //   firstDate: DateTime(22),
+                //   lastDate: DateTime(2000),
+                //   onDateChanged: (DateTime dateTime) {},
+                // ),
                 Text(
                   "TASKS LIST",
                   style: TextStyles.baseTextStyle,
@@ -91,6 +85,9 @@ class _TaskListPageState extends State<TaskListPage> {
                 AppButton(
                   color: AppColors.lightpurpule,
                   title: "+ ADD NEW TASK",
+                  onTap: () {
+                    Navigator.pushNamed(context, "/createTask");
+                  },
                 ),
               ],
             ),

@@ -17,6 +17,6 @@ class SchedulePage extends StatelessWidget {
   }
 
   Widget pageBody() {
-    // return
+    return Container();
   }
 }
