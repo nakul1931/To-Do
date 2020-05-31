@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:provider/provider.dart';
-import 'package:provider/single_child_widget.dart';
+// import 'package:provider/single_child_widget.dart';
 
 class App extends StatelessWidget {
   @override

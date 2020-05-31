@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:TodoList/src/data/dataMap.dart';
+// import 'package:TodoList/src/data/dataMap.dart';
 import 'package:TodoList/src/provider/task_provider.dart';
 import 'package:TodoList/src/provider/title_provider.dart';
 import 'package:TodoList/src/styles/color.dart';
@@ -9,7 +9,7 @@ import 'package:TodoList/src/widgets/button.dart';
 import 'package:TodoList/src/widgets/taskContainer.dart';
 import 'package:TodoList/src/widgets/todoButton.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
+// import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
