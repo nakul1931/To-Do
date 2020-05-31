@@ -7,14 +7,13 @@ import 'package:TodoList/src/styles/color.dart';
 import 'package:TodoList/src/styles/text.dart';
 import 'package:TodoList/src/widgets/button.dart';
 import 'package:TodoList/src/widgets/taskContainer.dart';
+import 'package:TodoList/src/widgets/taskList/titleManager.dart';
 import 'package:TodoList/src/widgets/todoButton.dart';
 import 'package:flutter/cupertino.dart';
 // import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-
-bool status = true;
 
 class TaskListPage extends StatelessWidget {
   @override
@@ -31,8 +30,8 @@ class TaskListPage extends StatelessWidget {
   }
 
   Widget pageBody(BuildContext context) {
+    print("====Task List Page Rebuild====");
     var taskListData = Provider.of<TaskProvider>(context);
-    var titleProvider = Provider.of<TitleProvider>(context);
 
     return Row(
       children: <Widget>[
@@ -50,27 +49,28 @@ class TaskListPage extends StatelessWidget {
                 SizedBox(
                   height: 10.0,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    // Text(
-                    //   "Work",
-                    //   style: TextStyles.headingStyle,
-                    // ),
-                    SizedBox(
-                        width:
-                            (MediaQuery.of(context).size.width * 0.8 - 30.0) /
-                                1.5,
-                        child: titleProvider.getWidget()),
-                    IconButton(
-                      icon: FaIcon(FontAwesomeIcons.pencilAlt),
-                      onPressed: () {
-                        status = !status;
-                        titleProvider.setBool(status);
-                      },
-                    ),
-                  ],
-                ),
+                TitleManager(),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: <Widget>[
+                //     // Text(
+                //     //   "Work",
+                //     //   style: TextStyles.headingStyle,
+                //     // ),
+                //     SizedBox(
+                //         width:
+                //             (MediaQuery.of(context).size.width * 0.8 - 30.0) /
+                //                 1.5,
+                //         child: titleProvider.getWidget()),
+                //     IconButton(
+                //       icon: FaIcon(FontAwesomeIcons.pencilAlt),
+                //       onPressed: () {
+                //         status = !status;
+                //         titleProvider.setBool(status);
+                //       },
+                //     ),
+                //   ],
+                // ),
                 SizedBox(
                   height: 20.0,
                 ),
