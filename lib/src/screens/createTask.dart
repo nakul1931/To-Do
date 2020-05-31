@@ -12,9 +12,9 @@ import 'dart:io';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
-Task task = new Task();
-
 class CreateTaskPage extends StatelessWidget {
+  final Task task = new Task();
+
   @override
   Widget build(BuildContext context) {
     if (Platform.isIOS) {
@@ -30,15 +30,13 @@ class CreateTaskPage extends StatelessWidget {
 
   Widget pageBody(BuildContext context) {
     var addTask = Provider.of<TaskProvider>(context);
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15.0),
-      child: SingleChildScrollView(
+    return SingleChildScrollView(
+      child: Container(
+        padding:
+            EdgeInsets.only(right: 15.0, left: 15.0, top: 10.0, bottom: 15.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(
-              height: 20.0,
-            ),
             InkWell(
               onTap: () {
                 Navigator.pop(context);
@@ -132,16 +130,19 @@ class CreateTaskPage extends StatelessWidget {
             SizedBox(
               height: 20.0,
             ),
-            AppButton(
-              title: "CREATE TASK",
-              color: AppColors.black,
-              onTap: () {
-                task.setDate("data");
-                task.setTime("time");
-                task.setStatus(Status.Pending);
-                addTask.addToTaskList(task);
-                print("Added");
-              },
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: AppButton(
+                title: "CREATE TASK",
+                color: AppColors.black,
+                onTap: () {
+                  task.setDate("data");
+                  task.setTime("time");
+                  task.setStatus(Status.Pending);
+                  addTask.addToTaskList(task);
+                  print("Added");
+                },
+              ),
             ),
           ],
         ),

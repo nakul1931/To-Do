@@ -35,7 +35,9 @@ class TaskListPage extends StatelessWidget {
         Expanded(
           child: Padding(
             padding:
-                const EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
+                // const EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
+                const EdgeInsets.only(
+                    right: 15.0, left: 15.0, top: 50.0, bottom: 15.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -78,12 +80,15 @@ class TaskListPage extends StatelessWidget {
                 SizedBox(
                   height: 20.0,
                 ),
-                AppButton(
-                  color: AppColors.lightpurpule,
-                  title: "+ ADD NEW TASK",
-                  onTap: () {
-                    Navigator.pushNamed(context, "/createTask");
-                  },
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: AppButton(
+                    color: AppColors.lightpurpule,
+                    title: "+ ADD NEW TASK",
+                    onTap: () {
+                      Navigator.pushNamed(context, "/createTask");
+                    },
+                  ),
                 ),
               ],
             ),
