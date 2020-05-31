@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:TodoList/src/data/dataMap.dart';
+import 'package:TodoList/src/provider/task_provider.dart';
 import 'package:TodoList/src/styles/color.dart';
 import 'package:TodoList/src/styles/text.dart';
 import 'package:TodoList/src/widgets/button.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 class TaskListPage extends StatelessWidget {
   @override
@@ -26,7 +28,8 @@ class TaskListPage extends StatelessWidget {
   }
 
   Widget pageBody(BuildContext context) {
-    // print(MediaQuery.of(context).size.width);
+    var taskListData = Provider.of<TaskProvider>(context);
+
     return Row(
       children: <Widget>[
         Expanded(
@@ -36,13 +39,6 @@ class TaskListPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                // CalendarDatePicker(
-
-                //   initialDate: DateTime(22),
-                //   firstDate: DateTime(22),
-                //   lastDate: DateTime(2000),
-                //   onDateChanged: (DateTime dateTime) {},
-                // ),
                 Text(
                   "TASKS LIST",
                   style: TextStyles.baseTextStyle,
@@ -69,15 +65,14 @@ class TaskListPage extends StatelessWidget {
                 Expanded(
                   child: ListView.builder(
                     itemBuilder: (BuildContext context, int index) {
-                      // print(DataMap.dataMap[index]);
                       return TaskContainer(
-                        title: DataMap.dataMap[index]["title"],
-                        time: DataMap.dataMap[index]["time"],
-                        date: DataMap.dataMap[index]["date"],
-                        status: DataMap.dataMap[index]["status"],
+                        title: taskListData.getTaskList()[index].title,
+                        time: taskListData.getTaskList()[index].time,
+                        date: taskListData.getTaskList()[index].date,
+                        status: taskListData.getTaskList()[index].status,
                       );
                     },
-                    itemCount: DataMap.dataMap.length,
+                    itemCount: taskListData.getTaskList().length,
                   ),
                 ),
                 SizedBox(
@@ -88,7 +83,6 @@ class TaskListPage extends StatelessWidget {
                   title: "+ ADD NEW TASK",
                   onTap: () {
                     Navigator.pushNamed(context, "/createTask");
-                    
                   },
                 ),
               ],

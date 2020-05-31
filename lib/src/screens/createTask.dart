@@ -1,12 +1,18 @@
+import 'package:TodoList/src/models/task.dart';
+import 'package:TodoList/src/provider/task_provider.dart';
 import 'package:TodoList/src/styles/color.dart';
 import 'package:TodoList/src/styles/text.dart';
 import 'package:TodoList/src/widgets/button.dart';
 import 'package:TodoList/src/widgets/detailsPicker.dart';
+import 'package:TodoList/src/widgets/taskContainer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
+
+Task task = new Task();
 
 class CreateTaskPage extends StatelessWidget {
   @override
@@ -23,6 +29,7 @@ class CreateTaskPage extends StatelessWidget {
   }
 
   Widget pageBody(BuildContext context) {
+    var addTask = Provider.of<TaskProvider>(context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15.0),
       child: SingleChildScrollView(
@@ -55,6 +62,9 @@ class CreateTaskPage extends StatelessWidget {
               height: 30.0,
             ),
             TextField(
+              onChanged: (String value) {
+                task.setTitle(value);
+              },
               decoration: InputDecoration(
                 hintText: "Task Name",
                 hintStyle: TextStyles.baseTextStyle,
@@ -125,7 +135,13 @@ class CreateTaskPage extends StatelessWidget {
             AppButton(
               title: "CREATE TASK",
               color: AppColors.black,
-              onTap: () => Navigator.pushNamed(context, "/schedule"),
+              onTap: () {
+                task.setDate("data");
+                task.setTime("time");
+                task.setStatus(Status.Pending);
+                addTask.addToTaskList(task);
+                print("Added");
+              },
             ),
           ],
         ),

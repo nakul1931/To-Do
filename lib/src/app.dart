@@ -1,8 +1,10 @@
+import 'package:TodoList/src/provider/task_provider.dart';
 import 'package:TodoList/src/routes.dart';
 import 'package:TodoList/src/screens/tasklist.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
+import 'package:provider/provider.dart';
 
 class App extends StatelessWidget {
   @override
@@ -20,9 +22,12 @@ class PlatformCheck extends StatelessWidget {
         onGenerateRoute: Routes.cupertinoPageRoute,
       );
     } else {
-      return MaterialApp(
-        home: TaskListPage(),
-        onGenerateRoute: Routes.materialPageRoute,
+      return ChangeNotifierProvider(
+        create: (context) => TaskProvider(),
+        child: MaterialApp(
+          home: TaskListPage(),
+          onGenerateRoute: Routes.materialPageRoute,
+        ),
       );
     }
   }
