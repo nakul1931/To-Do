@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:TodoList/src/data/dataMap.dart';
 import 'package:TodoList/src/provider/task_provider.dart';
+import 'package:TodoList/src/provider/title_provider.dart';
 import 'package:TodoList/src/styles/color.dart';
 import 'package:TodoList/src/styles/text.dart';
 import 'package:TodoList/src/widgets/button.dart';
@@ -12,6 +13,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+
+bool status = true;
 
 class TaskListPage extends StatelessWidget {
   @override
@@ -29,15 +32,14 @@ class TaskListPage extends StatelessWidget {
 
   Widget pageBody(BuildContext context) {
     var taskListData = Provider.of<TaskProvider>(context);
+    var titleProvider = Provider.of<TitleProvider>(context);
 
     return Row(
       children: <Widget>[
         Expanded(
           child: Padding(
-            padding:
-                // const EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
-                const EdgeInsets.only(
-                    right: 15.0, left: 15.0, top: 50.0, bottom: 15.0),
+            padding: const EdgeInsets.only(
+                right: 15.0, left: 15.0, top: 50.0, bottom: 15.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -51,13 +53,21 @@ class TaskListPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
-                      "Work",
-                      style: TextStyles.headingStyle,
-                    ),
+                    // Text(
+                    //   "Work",
+                    //   style: TextStyles.headingStyle,
+                    // ),
+                    SizedBox(
+                        width:
+                            (MediaQuery.of(context).size.width * 0.8 - 30.0) /
+                                1.5,
+                        child: titleProvider.getWidget()),
                     IconButton(
                       icon: FaIcon(FontAwesomeIcons.pencilAlt),
-                      onPressed: () {},
+                      onPressed: () {
+                        status = !status;
+                        titleProvider.setBool(status);
+                      },
                     ),
                   ],
                 ),
