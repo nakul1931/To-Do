@@ -1,3 +1,5 @@
+import 'package:TodoList/src/provider/createTask_provider.dart';
+import 'package:TodoList/src/provider/remindeMe_provider.dart';
 import 'package:TodoList/src/provider/taskList_provider.dart';
 import 'package:TodoList/src/provider/title_provider.dart';
 import 'package:TodoList/src/routes.dart';
@@ -31,6 +33,12 @@ class PlatformCheck extends StatelessWidget {
           ),
           ChangeNotifierProvider(
             create: (context) => TitleProvider(),
+          ),
+          ChangeNotifierProvider(
+            create: (context) => RemindMeProvider(),
+          ),
+          ChangeNotifierProvider(
+            create: (context) => CreateTaskProvider(),
           )
         ],
 

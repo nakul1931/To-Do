@@ -17,8 +17,9 @@ class TitleManager extends StatelessWidget {
             width: (MediaQuery.of(context).size.width * 0.8 - 30.0) / 1.5,
             child: titleProvider.getWidget()),
         IconButton(
-          icon: FaIcon(FontAwesomeIcons.pencilAlt),
+          icon: FaIcon(titleProvider.getIcon()),
           onPressed: () {
+            print(status);
             status = !status;
             titleProvider.setBool(status);
           },

@@ -23,4 +23,19 @@ class Task {
   void setStatus(Status status) {
     this.status = status;
   }
+  String getTitle() {
+    return this.title;
+  }
+
+  String getDate() {
+    return this.date;
+  }
+
+  String getTime() {
+    return this.time;
+  }
+
+  Status getStatus() {
+    return this.status;
+  }
 }

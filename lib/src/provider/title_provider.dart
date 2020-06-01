@@ -1,30 +1,37 @@
 import 'package:TodoList/src/styles/text.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TitleProvider extends ChangeNotifier {
-  bool isSelected = false;
-  Widget child;
+  bool isSelected;
+  IconData icon;
   String title;
 
-  TitleProvider({this.isSelected, this.child});
+  TitleProvider({this.isSelected});
 
   void setTitle(String title) {
     this.title = title;
   }
 
   Widget getWidget() {
-    if (isSelected == true || isSelected == null) {
-      return TextField(
-        decoration: InputDecoration(hintText: "Work"),
-      );
-    } else {
+    if (isSelected == false || isSelected == null) {
       return Text(
         "Work",
         style: TextStyles.headingStyle,
       );
+    } else {
+      return TextField(
+        decoration: InputDecoration(hintText: "Work"),
+      );
     }
-    // return child;
-    // return Text("Check");
+  }
+
+  IconData getIcon() {
+    if (isSelected == false || isSelected == null) {
+      return FontAwesomeIcons.pencilAlt;
+    } else {
+      return FontAwesomeIcons.checkSquare;
+    }
   }
 
   void setBool(bool status) {

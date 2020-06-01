@@ -1,9 +1,11 @@
 import 'package:TodoList/src/models/task.dart';
+import 'package:TodoList/src/provider/createTask_provider.dart';
 import 'package:TodoList/src/provider/taskList_provider.dart';
 import 'package:TodoList/src/styles/color.dart';
 import 'package:TodoList/src/styles/text.dart';
 import 'package:TodoList/src/widgets/button.dart';
-import 'package:TodoList/src/widgets/detailsPicker.dart';
+import 'package:TodoList/src/widgets/createTask/reminde_me.dart';
+import 'package:TodoList/src/widgets/createTask/detailsPicker.dart';
 import 'package:TodoList/src/widgets/taskContainer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,8 +15,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 class CreateTaskPage extends StatelessWidget {
-  final Task task = new Task();
-
   @override
   Widget build(BuildContext context) {
     if (Platform.isIOS) {
@@ -30,6 +30,7 @@ class CreateTaskPage extends StatelessWidget {
 
   Widget pageBody(BuildContext context) {
     var addTask = Provider.of<TaskListProvider>(context);
+    var checking = Provider.of<CreateTaskProvider>(context);
     return SingleChildScrollView(
       child: Container(
         padding:
@@ -61,7 +62,9 @@ class CreateTaskPage extends StatelessWidget {
             ),
             TextField(
               onChanged: (String value) {
-                task.setTitle(value);
+                if (value != null) {
+                  checking.setTitle(value);
+                }
               },
               decoration: InputDecoration(
                 hintText: "Task Name",
@@ -72,22 +75,49 @@ class CreateTaskPage extends StatelessWidget {
               height: 20.0,
             ),
             DetailsPicker(
+              onTap: () {
+                showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(2001),
+                        lastDate: DateTime(2021))
+                    .then((value) {
+                  if (value != null) {
+                    String date = value.day.toString() +
+                        "-" +
+                        value.month.toString() +
+                        "-" +
+                        value.year.toString();
+                    checking.setDate(date);
+                  }
+                });
+              },
               isBorder: false,
               icon: FontAwesomeIcons.calendar,
               iconColor: AppColors.yellow,
               iconAccent: AppColors.lightYellow,
               child: Text(
-                "Friday 28, November",
+                checking.getDate() == null ? "no time" : checking.getDate(),
                 style: TextStyles.titleStyle(AppColors.black),
               ),
             ),
             DetailsPicker(
+              onTap: () {
+                showTimePicker(context: context, initialTime: TimeOfDay.now())
+                    .then(
+                  (value) {
+                    if (value != null) {
+                      checking.setTime(value.format(context));
+                    }
+                  },
+                );
+              },
               isBorder: false,
               icon: FontAwesomeIcons.clock,
               iconColor: AppColors.red,
               iconAccent: AppColors.lightRed,
               child: Text(
-                "Friday 28, November",
+                checking.getTime() == null ? "no time" : checking.getTime(),
                 style: TextStyles.titleStyle(AppColors.black),
               ),
             ),
@@ -95,6 +125,7 @@ class CreateTaskPage extends StatelessWidget {
               height: 10.0,
             ),
             DetailsPicker(
+              onTap: () {},
               isBorder: true,
               icon: FontAwesomeIcons.briefcase,
               iconColor: AppColors.purpule,
@@ -110,6 +141,7 @@ class CreateTaskPage extends StatelessWidget {
               ),
             ),
             DetailsPicker(
+              onTap: () {},
               isBorder: true,
               icon: FontAwesomeIcons.bell,
               iconColor: AppColors.blue,
@@ -120,10 +152,7 @@ class CreateTaskPage extends StatelessWidget {
                     "Remind me",
                     style: TextStyles.titleStyle(AppColors.black),
                   ),
-                  CupertinoSwitch(
-                    value: false,
-                    onChanged: (value) => print(value),
-                  )
+                  RemindMe(),
                 ],
               ),
             ),
@@ -136,11 +165,7 @@ class CreateTaskPage extends StatelessWidget {
                 title: "CREATE TASK",
                 color: AppColors.black,
                 onTap: () {
-                  task.setDate("data");
-                  task.setTime("time");
-                  task.setStatus(Status.Pending);
-                  addTask.addToTaskList(task);
-                  print("Added");
+                  addTask.addToTaskList(checking.getTaskToAdd());
                 },
               ),
             ),
