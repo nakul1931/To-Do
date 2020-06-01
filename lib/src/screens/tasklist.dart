@@ -1,7 +1,7 @@
 import 'dart:io';
 
 // import 'package:TodoList/src/data/dataMap.dart';
-import 'package:TodoList/src/provider/task_provider.dart';
+import 'package:TodoList/src/provider/taskList_provider.dart';
 import 'package:TodoList/src/provider/title_provider.dart';
 import 'package:TodoList/src/styles/color.dart';
 import 'package:TodoList/src/styles/text.dart';
@@ -31,7 +31,7 @@ class TaskListPage extends StatelessWidget {
 
   Widget pageBody(BuildContext context) {
     print("====Task List Page Rebuild====");
-    var taskListData = Provider.of<TaskProvider>(context);
+    var taskListData = Provider.of<TaskListProvider>(context);
 
     return Row(
       children: <Widget>[

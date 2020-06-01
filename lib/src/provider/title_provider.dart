@@ -2,7 +2,7 @@ import 'package:TodoList/src/styles/text.dart';
 import 'package:flutter/material.dart';
 
 class TitleProvider extends ChangeNotifier {
-  bool isSelected;
+  bool isSelected = false;
   Widget child;
   String title;
 

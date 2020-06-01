@@ -1,5 +1,5 @@
 import 'package:TodoList/src/models/task.dart';
-import 'package:TodoList/src/provider/task_provider.dart';
+import 'package:TodoList/src/provider/taskList_provider.dart';
 import 'package:TodoList/src/styles/color.dart';
 import 'package:TodoList/src/styles/text.dart';
 import 'package:TodoList/src/widgets/button.dart';
@@ -29,7 +29,7 @@ class CreateTaskPage extends StatelessWidget {
   }
 
   Widget pageBody(BuildContext context) {
-    var addTask = Provider.of<TaskProvider>(context);
+    var addTask = Provider.of<TaskListProvider>(context);
     return SingleChildScrollView(
       child: Container(
         padding:

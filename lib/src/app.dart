@@ -1,4 +1,4 @@
-import 'package:TodoList/src/provider/task_provider.dart';
+import 'package:TodoList/src/provider/taskList_provider.dart';
 import 'package:TodoList/src/provider/title_provider.dart';
 import 'package:TodoList/src/routes.dart';
 import 'package:TodoList/src/screens/tasklist.dart';
@@ -27,7 +27,7 @@ class PlatformCheck extends StatelessWidget {
       return MultiProvider(
         providers: [
           ChangeNotifierProvider(
-            create: (context) => TaskProvider(),
+            create: (context) => TaskListProvider(),
           ),
           ChangeNotifierProvider(
             create: (context) => TitleProvider(),

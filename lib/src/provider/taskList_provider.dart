@@ -2,7 +2,7 @@ import 'package:TodoList/src/models/task.dart';
 import 'package:TodoList/src/widgets/taskContainer.dart';
 import 'package:flutter/material.dart';
 
-class TaskProvider extends ChangeNotifier {
+class TaskListProvider extends ChangeNotifier {
   List<Task> taskList = [
     Task(
       date: "18 NOV 2019",
