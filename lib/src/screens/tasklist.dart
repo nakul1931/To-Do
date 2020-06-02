@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:TodoList/src/styles/color.dart';
 import 'package:TodoList/src/styles/text.dart';
+import 'package:TodoList/src/utils/sendData.dart';
 import 'package:TodoList/src/widgets/button.dart';
 import 'package:TodoList/src/widgets/taskList/taskListWidget.dart';
 import 'package:TodoList/src/widgets/taskList/titleManager.dart';
@@ -73,9 +74,14 @@ class TaskListPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                FaIcon(
-                  FontAwesomeIcons.bars,
-                  color: AppColors.white,
+                IconButton(
+                  onPressed: (){
+                    SendData().sendData();
+                  },
+                  icon: FaIcon(
+                    FontAwesomeIcons.bars,
+                    color: AppColors.white,
+                  ),
                 ),
                 SizedBox(
                   height: 75.0,

@@ -14,6 +14,8 @@ import 'dart:io';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
+Task _task = new Task();
+
 class CreateTaskPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,6 @@ class CreateTaskPage extends StatelessWidget {
 
   Widget pageBody(BuildContext context) {
     var addTask = Provider.of<TaskListProvider>(context);
-    var checking = Provider.of<CreateTaskProvider>(context);
     return SingleChildScrollView(
       child: Container(
         padding:
@@ -63,7 +64,7 @@ class CreateTaskPage extends StatelessWidget {
             TextField(
               onChanged: (String value) {
                 if (value != null) {
-                  checking.setTitle(value);
+                  _task.setTitle(value);
                 }
               },
               decoration: InputDecoration(
@@ -88,7 +89,7 @@ class CreateTaskPage extends StatelessWidget {
                         value.month.toString() +
                         "-" +
                         value.year.toString();
-                    checking.setDate(date);
+                    _task.setDate(date);
                   }
                 });
               },
@@ -97,7 +98,7 @@ class CreateTaskPage extends StatelessWidget {
               iconColor: AppColors.yellow,
               iconAccent: AppColors.lightYellow,
               child: Text(
-                checking.getDate() == null ? "no time" : checking.getDate(),
+                _task.getDate() == null ? "no time" : _task.getDate(),
                 style: TextStyles.titleStyle(AppColors.black),
               ),
             ),
@@ -107,7 +108,7 @@ class CreateTaskPage extends StatelessWidget {
                     .then(
                   (value) {
                     if (value != null) {
-                      checking.setTime(value.format(context));
+                      _task.setTime(value.format(context));
                     }
                   },
                 );
@@ -117,7 +118,7 @@ class CreateTaskPage extends StatelessWidget {
               iconColor: AppColors.red,
               iconAccent: AppColors.lightRed,
               child: Text(
-                checking.getTime() == null ? "no time" : checking.getTime(),
+                _task.getTime() == null ? "no time" : _task.getTime(),
                 style: TextStyles.titleStyle(AppColors.black),
               ),
             ),
@@ -165,7 +166,7 @@ class CreateTaskPage extends StatelessWidget {
                 title: "CREATE TASK",
                 color: AppColors.black,
                 onTap: () {
-                  addTask.addToTaskList(checking.getTaskToAdd());
+                  addTask.addToTaskList(_task);
                 },
               ),
             ),

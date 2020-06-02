@@ -1,5 +1,6 @@
 import 'package:TodoList/src/widgets/taskContainer.dart';
 
+
 class Task {
   String title;
   String date;
@@ -23,6 +24,7 @@ class Task {
   void setStatus(Status status) {
     this.status = status;
   }
+
   String getTitle() {
     return this.title;
   }
