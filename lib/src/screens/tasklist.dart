@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:TodoList/src/data/data.dart';
+import 'package:TodoList/src/provider/taskList_provider.dart';
 import 'package:TodoList/src/styles/color.dart';
 import 'package:TodoList/src/styles/text.dart';
 import 'package:TodoList/src/utils/sendData.dart';
@@ -12,8 +14,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TaskListPage extends StatelessWidget {
+  final String g = "fr";
   @override
   Widget build(BuildContext context) {
+    g.substring(1, g.length);
+
     if (Platform.isIOS) {
       return CupertinoPageScaffold(
         child: SafeArea(child: pageBody(context)),
@@ -44,10 +49,12 @@ class TaskListPage extends StatelessWidget {
                 SizedBox(
                   height: 10.0,
                 ),
+                //TODO:Title Manager
                 TitleManager(),
                 SizedBox(
                   height: 20.0,
                 ),
+                //TODO:Task List Widget
                 TaskListWidget(),
                 SizedBox(
                   height: 20.0,
@@ -75,7 +82,7 @@ class TaskListPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
-                  onPressed: (){
+                  onPressed: () {
                     SendData().sendData();
                   },
                   icon: FaIcon(
@@ -87,11 +94,18 @@ class TaskListPage extends StatelessWidget {
                   height: 75.0,
                 ),
                 Expanded(
-                    child: Column(children: <Widget>[
-                  TodoButton(
-                      color: AppColors.lightpurpule,
-                      height: (MediaQuery.of(context).size.width * 0.2) - 30.0),
-                ])),
+                    child: ListView.builder(
+                  itemCount: dataButton["collections"].length,
+                  itemBuilder: (context, index) {
+                    return TodoButton(
+                      onTap: () {
+                        TaskListProvider().setTaskList(index);
+                      },
+                      title: dataButton["collections"][index]["name"][0],
+                      // color: Color(0xff+int.parse(dataButton["collections"][index]["color"])),
+                    );
+                  },
+                )),
                 SizedBox(
                   height: 20.0,
                 ),

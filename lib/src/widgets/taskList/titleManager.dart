@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
-bool status = true;
-
 class TitleManager extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -19,9 +17,7 @@ class TitleManager extends StatelessWidget {
         IconButton(
           icon: FaIcon(titleProvider.getIcon()),
           onPressed: () {
-            print(status);
-            status = !status;
-            titleProvider.setBool(status);
+            titleProvider.setBool();
           },
         ),
       ],

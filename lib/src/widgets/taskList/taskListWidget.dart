@@ -12,6 +12,7 @@ class TaskListWidget extends StatelessWidget {
     return Expanded(
       child: ListView.builder(
         itemBuilder: (BuildContext context, int index) {
+          print("Item Added");
           return TaskContainer(
             title: taskListData.getTaskList()[index].title,
             time: taskListData.getTaskList()[index].time,

@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TitleProvider extends ChangeNotifier {
-  bool isSelected;
+  bool isSelected = false;
   IconData icon;
   String title;
 
-  TitleProvider({this.isSelected});
+  TitleProvider({this.isSelected = false});
 
   void setTitle(String title) {
     this.title = title;
@@ -34,8 +34,9 @@ class TitleProvider extends ChangeNotifier {
     }
   }
 
-  void setBool(bool status) {
-    this.isSelected = status;
+  void setBool() {
+    isSelected = !isSelected;
+
     notifyListeners();
   }
 }
