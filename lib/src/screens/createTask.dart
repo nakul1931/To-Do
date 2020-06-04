@@ -14,9 +14,8 @@ import 'dart:io';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
-Task _task = new Task();
-
 class CreateTaskPage extends StatelessWidget {
+  final Task _task = new Task();
   @override
   Widget build(BuildContext context) {
     if (Platform.isIOS) {
@@ -31,7 +30,6 @@ class CreateTaskPage extends StatelessWidget {
   }
 
   Widget pageBody(BuildContext context) {
-    var addTask = Provider.of<TaskListProvider>(context);
     return SingleChildScrollView(
       child: Container(
         padding:
@@ -160,15 +158,21 @@ class CreateTaskPage extends StatelessWidget {
             SizedBox(
               height: 20.0,
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: AppButton(
-                title: "CREATE TASK",
-                color: AppColors.black,
-                onTap: () {
-                  addTask.addToTaskList(_task);
-                },
-              ),
+            Builder(
+              builder: (context) {
+                // var addTask = Provider.of<TaskListProvider>(context);
+                return Align(
+                  alignment: Alignment.bottomCenter,
+                  child: AppButton(
+                    title: "CREATE TASK",
+                    color: AppColors.black,
+                    onTap: () {
+                      print(_task.title);
+                      // addTask.addToTaskList(_task);
+                    },
+                  ),
+                );
+              },
             ),
           ],
         ),

@@ -11,11 +11,12 @@ class TaskListProvider extends ChangeNotifier {
   }
 
   void replaceList(List<Task> _taskList) {
-    // print("TODO addedd");
-    print(_taskList);
-    this.taskList = _taskList;
-    TaskListProvider().addToTaskList(_taskList[0]);
-    // notifyListeners();
+    // print(_taskList.length);
+    // print(_taskList[0].runtimeType);
+    taskList = _taskList;
+    print(taskList);
+
+    notifyListeners();
   }
 
   void setTaskList(int index) {

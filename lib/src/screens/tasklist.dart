@@ -102,7 +102,7 @@ class TaskListPage extends StatelessWidget {
                         TaskListProvider().setTaskList(index);
                       },
                       title: dataButton["collections"][index]["name"][0],
-                      // color: Color(0xff+int.parse(dataButton["collections"][index]["color"])),
+                      // color: dataButton["collections"][index]["color"].toColor(),
                     );
                   },
                 )),
